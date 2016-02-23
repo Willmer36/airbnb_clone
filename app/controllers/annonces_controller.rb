@@ -30,7 +30,7 @@ class AnnoncesController < ApplicationController
 
   def destroy
     @annonce = Annonce.find(params[:id])
-    @restaurant.destroy
+    @annonce.destroy
     redirect_to annonces_path
   end
 
