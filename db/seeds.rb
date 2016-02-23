@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+annonces_attributes = [
+  {
+    title:        "Contrairement à la cirose, cet appartement vaut le coup",
+    address:      "Paris",
+    description:  "cool",
+    capacity:        3,
+    price:           55
+  }
+]
+annonces_attributes.each { |params| Annonce.create!(params) }
