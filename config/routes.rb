@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :annonces
-  resources :users
+
+  resources :users do
+     resources :annonces, only: [:new, :create, :edit, :destroy ]
+  end
   resources :bookings
 
   # The priority is based upon order of creation: first created -> highest priority.
