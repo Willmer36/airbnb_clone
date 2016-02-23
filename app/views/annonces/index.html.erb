@@ -1,0 +1,19 @@
+<h1>Annonces</h1>
+
+<div class="container">
+ <div class="row">
+   <% @annonces.each do |annonce| %>
+     <div class="col-xs-12 col-sm-6">
+       <%= render "card", annonces: annonce %>
+     </div>
+   <% end %>
+ </div>
+</div>
+
+
+
+<div class="container">
+
+ <p><%= link_to "Add a new annonce", new_annonce_path, class: "btn btn-danger" %></p>
+
+</div>
