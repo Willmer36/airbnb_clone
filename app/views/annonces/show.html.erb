@@ -10,8 +10,8 @@
     <p><strong>Description: </strong><%= @annonce.description %></p>
     <p><strong>Capacity: </strong><%= @annonce.capacity %></p>
     <p><strong>Price: </strong><%= @annonce.price %></p>
-
-    <button type="button" class="btn btn-primary-outline"><%= button_to "delete", @annonce, :method => :delete %></button>
+    <p><%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></p></button>
+    <p><%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-primary" %></p></button>
 
   </div>
 </div>
