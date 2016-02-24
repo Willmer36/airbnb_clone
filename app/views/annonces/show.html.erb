@@ -11,7 +11,6 @@
     <p><strong>Capacity: </strong><%= @annonce.capacity %></p>
     <p><strong>Price: </strong><%= @annonce.price %></p>
     <%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></button>
-    <%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-primary" %></button>
 
 
 
@@ -48,6 +47,7 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-danger" %></button>
 
 
   </div>
