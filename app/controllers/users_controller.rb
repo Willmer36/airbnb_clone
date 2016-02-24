@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-def update
+  def update
     @user = User.find(params[:id])
     if params[:user]
       @user.update(user_params)
@@ -12,7 +12,7 @@ def update
     @rating = Rating.new
   end
 
-private
+  private
   def user_params
     params.require(:user).permit(:avatar, :bio, :location)
   end
