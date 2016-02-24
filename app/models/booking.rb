@@ -3,3 +3,4 @@ class Booking < ActiveRecord::Base
   belongs_to :annonce
   validates :start_date, :end_date, presence: true
 end
+

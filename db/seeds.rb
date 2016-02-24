@@ -18,28 +18,28 @@ annonces_attributes = [
   {
     title:        "Péniche réaménagée",
     address:      "55, quai de la Reine, 75019 Paris",
-    description:  "Belle péniche avec tout le confort moderne et une connexion wifi",
+    description:  "Superbe péniche avec tout le confort moderne et une connexion wifi",
     capacity:        6,
     price:           250
   },
   {
     title:        "Rooftop à New-York",
     address:      "146 E 50th St, New York, NY 10022",
-    description:  "Expérience unique dans ce rooftop d'exception dominant Manatthan ",
+    description:  "Vivez une expérience unique dans ce rooftop d'exception dominant Manatthan ",
     capacity:        10,
     price:           1000
   },
   {
-    title:        "Ferme de campagne",
+    title:        "Ferme ancienne",
     address:      "4 rue de la Chapelle, 33360 Latresne",
     description:  "Belle ferme de campagne avec une cheminée ancienne, une piscine et un étang dans le jardin",
     capacity:        20,
     price:           120
   },
   {
-    title:        "Maison avec vue sur la Mediterannée à Antibes",
+    title:        "Maison avec vue sur la Méditerranée à Antibes",
     address:      "2 Boulevard Maréchal Juin, 06160 Antibes",
-    description:  "Profittez de la doceur du climat dans cette maison d'architecte et sa vue imprenable",
+    description:  "Profitez de la douceur du climat dans cette maison d'architecte et sa vue imprenable",
     capacity:        8,
     price:           200
   },
