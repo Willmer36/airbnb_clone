@@ -1,16 +1,23 @@
+<div class="text_center">
 <h1>Annonces</h1>
+</div>
+<br>
+<br>
 
 <div class="container">
  <div class="row">
   <% @annonces.each do |annonce| %>
     <div class="col-md-6 clear-left">
-      <li><%= link_to annonce.title, annonce_path(annonce) %></li>
+      <lu><%= link_to annonce.title, annonce_path(annonce) %></lu>
     </div>
   <% end %>
 </div>
 </div>
 
-
+<br>
+<br>
+<br>
+<br>
 
 <div class="container">
 

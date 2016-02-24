@@ -2,7 +2,7 @@
 
 
 <div class "row">
-  <div class="col-md-4 content">
+  <div class="col-sm-6 col-sm-offset-3content">
 
     <h2><%=@annonce.title %></h2>
 
@@ -10,8 +10,8 @@
     <p><strong>Description: </strong><%= @annonce.description %></p>
     <p><strong>Capacity: </strong><%= @annonce.capacity %></p>
     <p><strong>Price: </strong><%= @annonce.price %></p>
-    <p><%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></p></button>
-    <p><%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-primary" %></p></button>
+    <%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></button>
+    <%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-primary" %></button>
 
 
 

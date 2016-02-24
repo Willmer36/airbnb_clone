@@ -1,19 +1,17 @@
-<%= form_for @annonce do |f| %>
-  <div class="form-group">
-    <%= f.text_field :title, placeholder: "Title" %>
+
+<div class="container">
+  <div class="row">
+     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= simple_form_for(@annonce) do |f| %>
+      <%= f.error_notification %>
+
+      <%= f.input :title %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :capacity %>
+      <%= f.button :submit, class:'btn btn-primary btn-block' %>
+      <% end %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.text_area :description, cols: 60, rows: 10, placeholder: "Description" %>
-  </div>
-  <div class="form-group">
-    <%= f.text_field :address, placeholder: "City" %>
-  </div>
- <div class="form-group">
-    <%= f.text_field :capacity, placeholder: "Capacity" %>
-  </div>
-  <div class="form-group">
-    <%= f.text_field :price, placeholder: "Price" %>
-  </div>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit class: "btn btn-success" %>
-<% end %>
+</div>
