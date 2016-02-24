@@ -1,8 +1,13 @@
 <div class="card">
-  <img class="card-img-top" data-src="..." alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title">@annonce.name</h4>
-    <p class="card-text">@annonce.description</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
+  <span class="card-bg" style="background-image:url('https://unsplash.it/600/300?image=3')"></span>
+  <span class="card-gradient"></span>
+  <span class="card-categorie">French</span>
+  <span class="card-text">
+    <h2><td><%= link_to annonce_id, annonce %></td></h2>
+    <p><%= annonce.address %></p>
+  </span>
+  <span class="card-user">
+    <img src="http://placehold.it/50x50" class="avatar avatar-bordered"/>
+  </span>
+  <%= link_to "", annonce_path(annonce), class: "card-link" %>
 </div>

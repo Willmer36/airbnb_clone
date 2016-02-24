@@ -2,12 +2,12 @@
 
 <div class="container">
  <div class="row">
-   <% @annonces.each do |annonce| %>
-     <div class="col-xs-12 col-sm-6">
-       <%= render "card", annonces: annonce %>
-     </div>
-   <% end %>
- </div>
+  <% @annonces.each do |annonce| %>
+    <div class="col-md-6 clear-left">
+      <li><%= link_to annonce.title, annonce_path(annonce) %></li>
+    </div>
+  <% end %>
+</div>
 </div>
 
 
@@ -17,3 +17,4 @@
  <p><%= link_to "Add a new annonce", new_annonce_path, class: "btn btn-danger" %></p>
 
 </div>
+

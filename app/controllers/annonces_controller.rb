@@ -37,7 +37,7 @@ class AnnoncesController < ApplicationController
   private
 
   def annonce_params
-    params.require(:annonce).permit(:title, :description, :edit)
+    params.require(:annonce).permit(:title, :description, :price, :capacity, :address)
   end
 
 end
