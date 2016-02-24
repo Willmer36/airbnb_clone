@@ -1,4 +1,4 @@
-<%= @annonce.inspect %>
+
 
 
 <div class "row">
@@ -12,6 +12,43 @@
     <p><strong>Price: </strong><%= @annonce.price %></p>
     <p><%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></p></button>
     <p><%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-primary" %></p></button>
+
+
+
+    <%= link_to "Booking here!", '#', data: { toggle: "modal", target: "#annonce-#{@annonce.id}"}, class: "btn btn-primary" %>
+
+
+    <div class="modal fade" id="annonce-<%= @annonce.id %>">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><%= @annonce.title %></h4>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <form action="input-type-date.php" method="post">
+                <label for="champ1">Votre date d'arrivée</label>
+                <input type="date" id="champ1" name="date">
+                <br><br>
+              </form>
+            </ul>
+            <ul>
+              <form action="input-type-date.php" method="post">
+                <label for="champ1">Votre date de départ</label>
+                <input type="date" id="champ1" name="date">
+                <br><br>
+              </form>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Booking</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 
   </div>
 </div>
