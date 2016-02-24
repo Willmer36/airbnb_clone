@@ -1,17 +1,25 @@
+<br>
 
+<br>
 <div class="container">
-  <div class="row">
-     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <%= simple_form_for(@annonce) do |f| %>
-      <%= f.error_notification %>
-
-      <%= f.input :title %>
-      <%= f.input :address %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :capacity %>
-      <%= f.button :submit, class:'btn btn-primary btn-block' %>
-      <% end %>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="well">
+        <h2 class="text-center">New annonce</h2>
+        <br>
+        <hr>
+        <%= simple_form_for(@annonce) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :title, placeholder: "Title", label: false %>
+          <br>
+          <%= f.input :address, placeholder: "Address", label: false%>
+          <%= f.input :description, placeholder: "Description", label: false%>
+          <%= f.input :price, placeholder: "Price", label: false%>
+          <%= f.input :capacity, placeholder: "Capacity", label: false%>
+          <br>
+          <%= f.button :submit, class:'btn btn-success btn-block' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
