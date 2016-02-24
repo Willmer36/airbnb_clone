@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Annonce.destroy_all
+
 annonces_attributes = [
   {
     title:        "Contrairement à la cirose, cet appartement vaut le coup",
@@ -15,3 +17,4 @@ annonces_attributes = [
   }
 ]
 annonces_attributes.each { |params| Annonce.create!(params) }
+

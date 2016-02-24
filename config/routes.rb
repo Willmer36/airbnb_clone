@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-  resources :users do
-     resources :annonces, only: [:new, :create, :edit, :destroy ]
+  resources :users
+  resources :annonces do
+    resources :bookings
   end
-  resources :bookings
-  resources :annonces
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

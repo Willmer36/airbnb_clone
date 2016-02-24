@@ -1,10 +1,11 @@
 class AnnoncesController < ApplicationController
+before_action :set_annonce, only: [:show, :edit, :update, :destroy]
+
   def index
     @annonces = Annonce.all
   end
 
   def show
-    @annonce = Annonce.find(params[:id])
   end
 
   def new
@@ -18,23 +19,24 @@ class AnnoncesController < ApplicationController
     redirect_to annonces_path(@annonce)
   end
 
+  def edit
+  end
+
   def update
-    @annonce = Annonce.find(params[:id])
     @annonce.update(annonce_params)
     redirect_to annonces_path(@annonce)
   end
 
-  def edit
-    @annonce = Annonce.find(params[:id])
-  end
-
   def destroy
-    @annonce = Annonce.find(params[:id])
     @annonce.destroy
     redirect_to annonces_path
   end
 
   private
+
+  def set_annonce
+     @annonce = Annonce.find(params[:id])
+  end
 
   def annonce_params
     params.require(:annonce).permit(:title, :description, :price, :capacity, :address)
