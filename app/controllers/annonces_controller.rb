@@ -6,6 +6,8 @@ before_action :set_annonce, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @booking = Booking.new
+    @annonce = Annonce.find(params[:id])
   end
 
   def new

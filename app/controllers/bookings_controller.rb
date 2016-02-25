@@ -1,50 +1,48 @@
 
 class BookingsController < ApplicationController
+  before_action :find_booking, only: [ :show, :destroy ]
+  before_action :authenticate_user!, only: :create
 
-  def index
-    @bookings = Booking.all
+def create
+  @annonce = Annonce.find(params[:annonce_id])
+  @booking = current_user.bookings.new(booking_params)
+  if @booking.save
+    redirect_to @annonce
+  else
+    render "bookings/new"
   end
+end
 
-  def show
-    @booking = Booking.find(params[:id])
-  end
+def new
+  @annonce = Annonce.find(params[:annonce_id])
+  @booking = @annonce.bookings.new
+end
 
-  def new
-    @booking = Booking.new
+def show
+  if current_user == @booking.user
+    @price = (@booking.end_date - @booking.start_date).to_i * @booking.annonce.price
+  else
+    redirect_to "/404.html"
   end
+end
 
-  def edit
-    @booking = Booking.find(params[:id])
-  end
+def index
+  @bookings = current_user.bookings
+end
 
-  def update
-    @booking = Booking.find(params[:id])
-    if params[:booking]
-      @booking.update(bookings_params)
-    end
-      redirect_to booking_path
-  end
-
-  def create
-    @booking = Booking.new(bookings_params)
-    if @booking.save
-      flash[:notice] = "booking created!"
-      redirect_to root_path
-    else
-      flash[:blocked] = "Time period BLOCKED"
-      redirect_to :back
-    end
-  end
-
-  def destroy
-    @booking = Booking.find(params[:id])
-    @booking.destroy
-    redirect_to(root_path)
-  end
+def destroy
+  @booking.destroy
+end
 
 private
 
-  def bookings_params
+  def booking_params
+    params[:booking][:annonce_id] = params[:annonce_id] if params[:booking]
     params.require(:booking).permit(:user_id, :annonce_id, :start_date, :end_date)
   end
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
+
 end

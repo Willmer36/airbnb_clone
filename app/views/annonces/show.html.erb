@@ -28,18 +28,11 @@
           </div>
           <div class="modal-body">
             <ul>
-              <form action="input-type-date.php" method="post">
-                <label for="champ1">Votre date d'arrivée</label>
-                <input type="date" id="champ1" name="date">
-                <br><br>
-              </form>
-            </ul>
-            <ul>
-              <form action="input-type-date.php" method="post">
-                <label for="champ1">Votre date de départ</label>
-                <input type="date" id="champ1" name="date">
-                <br><br>
-              </form>
+            <%= simple_form_for [@annonce, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.submit %>
+              <% end %>
             </ul>
           </div>
           <div class="modal-footer">
