@@ -5,4 +5,5 @@ class Annonce < ActiveRecord::Base
   validates :description, presence: true
   validates :address, presence: true
   validates :price, presence: true
+  mount_uploader :photo, PhotoUploader
 end

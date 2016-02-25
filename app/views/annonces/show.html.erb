@@ -10,6 +10,8 @@
     <p><strong>Description: </strong><%= @annonce.description %></p>
     <p><strong>Capacity: </strong><%= @annonce.capacity %></p>
     <p><strong>Price: </strong><%= @annonce.price %></p>
+    <%= cl_image_tag @annonce.photo, height: 300, width: 400, crop: :fill %>
+    <br>
     <%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></button>
 
 
