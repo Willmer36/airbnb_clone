@@ -16,6 +16,8 @@
           <%= f.input :description, placeholder: "Description", label: false%>
           <%= f.input :price, placeholder: "Price", label: false%>
           <%= f.input :capacity, placeholder: "Capacity", label: false%>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
           <br>
           <%= f.button :submit, class:'btn btn-success btn-block' %>
         <% end %>

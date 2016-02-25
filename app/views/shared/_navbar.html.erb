@@ -22,7 +22,7 @@
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+          <div class="badge badge-blue">New</div>
         </div>
       <% end %>
 
@@ -49,6 +49,9 @@
           </ul>
         </div>
       </div>
+          <!-- Button (call-to-action) -->
+    <%= link_to "New annonce", new_annonce_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to "My Bookings", annonce_bookings_path(current_user), class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% else %>
 
@@ -57,8 +60,7 @@
 
     <% end %>
 
-    <!-- Button (call-to-action) -->
-    <%= link_to "New annonce", new_annonce_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

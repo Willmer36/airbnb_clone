@@ -10,6 +10,8 @@
     <p><strong>Description: </strong><%= @annonce.description %></p>
     <p><strong>Capacity: </strong><%= @annonce.capacity %></p>
     <p><strong>Price: </strong><%= @annonce.price %></p>
+    <%= cl_image_tag @annonce.photo, height: 300, width: 400, crop: :fill %>
+    <br>
     <%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></button>
 
 
@@ -26,18 +28,11 @@
           </div>
           <div class="modal-body">
             <ul>
-              <form action="input-type-date.php" method="post">
-                <label for="champ1">Votre date d'arrivée</label>
-                <input type="date" id="champ1" name="date">
-                <br><br>
-              </form>
-            </ul>
-            <ul>
-              <form action="input-type-date.php" method="post">
-                <label for="champ1">Votre date de départ</label>
-                <input type="date" id="champ1" name="date">
-                <br><br>
-              </form>
+            <%= simple_form_for [@annonce, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.submit %>
+              <% end %>
             </ul>
           </div>
           <div class="modal-footer">
