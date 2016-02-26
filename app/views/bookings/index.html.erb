@@ -2,9 +2,34 @@
 <h2>Your Bookings:</h2>
 
 <% @bookings.each do |booking| %>
-  <p>from:<%= booking.start_date %></p>
-  <p>to:<%= booking.end_date %></p>
-  <%= link_to ">> See details", booking %>
-  <br>
-  <hr>
+<p>Start at: <%= booking.start_date %></p>
+<p>End to: <%= booking.end_date %></p>
+<%= link_to ">> See details", "#", data: { toggle: "modal", target: "#booking"}%>
+<div class="modal fade" id="booking">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2>Your Booking in details:</h2>
+      </div>
+      <div class="modal-body col-md-6 clear-left">
+        <ul>
+
+          <p><%= booking.annonce.title %></p>
+
+          <p>Start at: <%= booking.start_date %> 18h!</p>
+
+          <p>End to: <%= booking.end_date %> 14h!</p>
+          <br>
+          <p>Be Enjoy</p>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<br>
+<hr>
 <% end %>
