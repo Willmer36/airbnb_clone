@@ -1,11 +1,17 @@
 <div class "row">
   <div class="col-md-4 content">
 
-    <h2>Your coming trip:</h2>
+    <h2>Your Booking in details:</h2>
 
-    <p><%= @booking.flat.address %></p>
-    <p><%= @booking.flat.user.name%></p>
-    <p>from:<%= @booking.start_date %></p>
-    <p>to:<%= @booking.end_date %></p>
+    <p><%= @booking.annonce.address %></p>
+    <br>
+    <hr>
+    <p>Start at: <%= @booking.start_date %> 18h!</p>
+
+    <p>End to: <%= @booking.end_date %> 14h!</p>
+    <br>
+    <p>Be Enjoy</p>
   </div>
+
+
 </div>

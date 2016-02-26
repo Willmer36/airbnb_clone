@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :annonces do
-    resources :bookings
+    resources :bookings, only: :create
   end
+
+  resources :bookings
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
