@@ -18,12 +18,12 @@ rand_addresses = addresses.sample(30)
 
 puts "-- Creating Users"
 users = Array.new(10) do |number|
-  User.create!(name: Faker::Name.name, email: "test#{number+1}@test.com", password: "test"*3, password_confirmation: "test"*3)
+  User.create!(email: "test#{number+1}@test.com", password: "test"*3, password_confirmation: "test"*3)
 end
 
 puts "-- Creating Annonces"
 annonces = Array.new(30) do |number|
-  users.sample.annonces.create!(description: "Test #{number+1}", address: "#{Faker::Address.street_name} #{Faker::Address.city}", price: (50..500).to_a.sample)
+  users.sample.annonces.create!(title: Faker::Name.name,description: "Test #{number+1}", address: "#{Faker::Address.street_name} #{Faker::Address.city}", price: (50..500).to_a.sample)
 end
 
 puts "-- Creating Bookings"

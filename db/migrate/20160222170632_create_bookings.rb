@@ -1,4 +1,4 @@
-class CreateBookings < ActiveRecord::Migration
+ class CreateBookings < ActiveRecord::Migration
   def change
     create_table :bookings do |t|
       t.date :start_date
