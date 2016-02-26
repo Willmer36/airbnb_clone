@@ -11,6 +11,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'faker'
+gem 'faker_extension_fr'
 
 gem 'sass-rails'
 gem 'jquery-rails'
