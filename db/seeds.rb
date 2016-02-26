@@ -5,51 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Annonce.destroy_all
 
-annonces_attributes = [
-  {
-    title:        "Appartement T2",
-    address:      "14 rue Sainte-Catherine, 33000 Bordeaux",
-    description:  "Vaste appartement en plein centre-ville de Bordeaux ",
-    capacity:        4,
-    price:           80
-  },
-  {
-    title:        "Péniche réaménagée",
-    address:      "55, quai de la Reine, 75019 Paris",
-    description:  "Superbe péniche avec tout le confort moderne et une connexion wifi",
-    capacity:        6,
-    price:           250
-  },
-  {
-    title:        "Rooftop à New-York",
-    address:      "146 E 50th St, New York, NY 10022",
-    description:  "Vivez une expérience unique dans ce rooftop d'exception dominant Manatthan ",
-    capacity:        10,
-    price:           1000
-  },
-  {
-    title:        "Ferme ancienne",
-    address:      "4 rue de la Chapelle, 33360 Latresne",
-    description:  "Belle ferme de campagne avec une cheminée ancienne, une piscine et un étang dans le jardin",
-    capacity:        20,
-    price:           120
-  },
-  {
-    title:        "Maison avec vue sur la Méditerranée à Antibes",
-    address:      "2 Boulevard Maréchal Juin, 06160 Antibes",
-    description:  "Profitez de la douceur du climat dans cette maison d'architecte et sa vue imprenable",
-    capacity:        8,
-    price:           200
-  },
-  {
-    title:        "Appartement T3 situé sur la place Stanislas ",
-    address:      "2 Place Stanislas, 54000 Nancy",
-    description:  "Découvrez rapidement cet appartement confortable et idéal pour passer un séjour à Nancy",
-    capacity:        6,
-    price:           70
-  }
+User.destroy_all
+
+puts "Seed started !"
+
+puts "-- Generated addresses"
+addresses = [
+
 ]
-annonces_attributes.each { |params| Annonce.create!(params) }
+rand_addresses = addresses.sample(30)
 
+puts "-- Creating Users"
+users = Array.new(10) do |number|
+  User.create!(name: Faker::Name.name, email: "test#{number+1}@test.com", password: "test"*3, password_confirmation: "test"*3)
+end
+
+puts "-- Creating Annonces"
+annonces = Array.new(30) do |number|
+  users.sample.annonces.create!(description: "Test #{number+1}", address: "#{Faker::Address.street_name} #{Faker::Address.city}", price: (50..500).to_a.sample)
+end
+
+puts "-- Creating Bookings"
+date1 = Date.today
+bookings = Array.new(15) do |number|
+  date2 = date1 + (3..15).to_a.sample
+  users.sample.bookings.create!(start_date: date1 , end_date: date2, annonce_id: annonces.sample.id)
+  date1 = date2+1
+end

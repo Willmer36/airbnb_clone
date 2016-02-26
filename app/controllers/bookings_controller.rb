@@ -1,7 +1,7 @@
 
 class BookingsController < ApplicationController
   before_action :find_booking, only: [ :show, :destroy ]
-  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: [:create]
 
 def create
   @annonce = Annonce.find(params[:annonce_id])

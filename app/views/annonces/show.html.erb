@@ -12,8 +12,9 @@
     <p><strong>Price: </strong><%= @annonce.price %></p>
     <%= cl_image_tag @annonce.photo, height: 300, width: 400, crop: :fill %>
     <br>
-    <%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></button>
-
+    <% if @annonce.user == current_user %>
+      <%= link_to "Edit thit annonce", edit_annonce_path, class: "btn btn-primary" %></button>
+    <% end %>
 
 
     <%= link_to "Booking here!", '#', data: { toggle: "modal", target: "#annonce-#{@annonce.id}"}, class: "btn btn-primary" %>
@@ -42,8 +43,10 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-danger" %></button>
 
+    <% if @annonce.user == current_user %>
+    <%= link_to "Delete thit annonce", @annonce, :method => :delete , class: "btn btn-danger" %></button>
+    <% end %>
 
   </div>
 </div>

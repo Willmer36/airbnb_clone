@@ -1,5 +1,6 @@
 class AnnoncesController < ApplicationController
-before_action :set_annonce, only: [:show, :edit, :update, :destroy]
+  before_action :set_annonce, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :delete]
 
   def index
     @annonces = Annonce.all
@@ -15,7 +16,7 @@ before_action :set_annonce, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @annonce = Annonce.new(annonce_params)
+    @annonce = current_user.annonces.new(annonce_params)
     @annonce.save
 
     redirect_to annonces_path(@annonce)
